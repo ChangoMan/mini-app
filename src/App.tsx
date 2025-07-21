@@ -5,6 +5,7 @@ import {
   type BaseError,
   useAccount,
   useConnect,
+  useDisconnect,
   useSendTransaction,
   useSignMessage,
   useWaitForTransactionReceipt,
@@ -40,13 +41,17 @@ function ConnectMenu() {
   }
 
   return (
-    <button
-      type="button"
-      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-      onClick={() => connect({ connector: connectors[0] })}
-    >
-      Connect
-    </button>
+    <div className="flex flex-col gap-2 max-w-xs mx-auto">
+      {connectors.map((connector) => (
+        <button
+          key={connector.uid}
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+          onClick={() => connect({ connector })}
+        >
+          {connector.name}
+        </button>
+      ))}
+    </div>
   )
 }
 
@@ -58,6 +63,7 @@ function SignButton() {
     isPending: isSendPending,
     sendTransaction,
   } = useSendTransaction()
+  const { disconnect } = useDisconnect()
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -123,6 +129,15 @@ function SignButton() {
             </div>
           )}
         </form>
+      </div>
+
+      <div className="mt-12">
+        <button
+          className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded"
+          onClick={() => disconnect()}
+        >
+          Disconnect
+        </button>
       </div>
     </>
   )
