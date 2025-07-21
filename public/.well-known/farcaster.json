@@ -1,1 +1,16 @@
-{}
+{
+  "miniapp": {
+    "version": "1",
+    "name": "Hunter Chang",
+    "iconUrl": "https://hc-mini-app.vercel.app/logo.png",
+    "homeUrl": "https://hc-mini-app.vercel.app/",
+    "imageUrl": "https://hc-mini-app.vercel.app/og.jpg",
+    "buttonTitle": "Start",
+    "splashImageUrl": "https://hc-mini-app.vercel.app/og.jpg",
+    "splashBackgroundColor": "#f5f0ec",
+    "requiredChains": ["eip155:8453"],
+    "ogTitle": "Hunter Chang",
+    "ogDescription": "A demo miniapp by Hunter",
+    "ogImageUrl": "https://hc-mini-app.vercel.app/og.jpg"
+  }
+}
