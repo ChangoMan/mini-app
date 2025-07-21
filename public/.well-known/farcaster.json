@@ -1,4 +1,9 @@
 {
+  "accountAssociation": {
+    "header": "eyJmaWQiOjM0MTQ1NCwidHlwZSI6ImF1dGgiLCJrZXkiOiIweEQ1MTk0QkM2NTY2NTEzMTEyMEY4MzY2N0JkNzRDNzZmYzMwNzAzNEIifQ",
+    "payload": "eyJkb21haW4iOiJoYy1taW5pLWFwcC52ZXJjZWwuYXBwIn0",
+    "signature": "ns/mSNHMxhrrnwjJPWhGuoRLI2sO5PlgbCuIPI4+Jw0CR4FwHhydsVrT8LAvnsH6KlwXZQvoKHtgiYlbojYnphw="
+  },
   "miniapp": {
     "version": "1",
     "name": "Hunter Chang",
