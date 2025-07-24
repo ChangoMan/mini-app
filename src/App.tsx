@@ -7,7 +7,6 @@ import {
   useConnect,
   useDisconnect,
   useSendTransaction,
-  useSignMessage,
   useWaitForTransactionReceipt,
 } from 'wagmi'
 
@@ -48,7 +47,7 @@ function ConnectMenu() {
           className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
           onClick={() => connect({ connector })}
         >
-          {connector.name}
+          Connect with {connector.name}
         </button>
       ))}
     </div>
@@ -56,7 +55,6 @@ function ConnectMenu() {
 }
 
 function SignButton() {
-  const { signMessage, isPending, data, error } = useSignMessage()
   const {
     data: hash,
     error: sendError,
@@ -65,10 +63,11 @@ function SignButton() {
   } = useSendTransaction()
   const { disconnect } = useDisconnect()
 
-  async function submit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    const to = '0xf7e89E45502890381F9242403eA8661fad89Ca79'
-    sendTransaction({ to, value: parseEther('0.0002') })
+  async function handleSendEth() {
+    sendTransaction({
+      to: '0xf7e89E45502890381F9242403eA8661fad89Ca79', //hunterchang.eth
+      value: parseEther('0.0002'),
+    })
   }
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
@@ -78,52 +77,29 @@ function SignButton() {
 
   return (
     <>
-      <button
-        type="button"
-        className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        onClick={() => signMessage({ message: 'hello world' })}
-        disabled={isPending}
-      >
-        {isPending ? 'Signing...' : 'Sign message'}
-      </button>
-      {data && (
-        <>
-          <div className="mt-10">Signature</div>
-          <div className="mt-4 text-xs whitespace-wrap break-words">{data}</div>
-        </>
-      )}
-      {error && (
-        <>
-          <div className="mt-6 text-red-500">Error</div>
-          <div>{error.message}</div>
-        </>
-      )}
-
       <div className="mt-12">
-        <h2 className="text-xl font-bold">Send Hunter ETH</h2>
-        <form className="mt-4" onSubmit={submit}>
-          <button
-            disabled={isSendPending}
-            type="submit"
-            className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-          >
-            {isSendPending ? 'Confirming...' : 'Send 0.0002 ETH'}
-          </button>
-          {hash && <div>Transaction Hash: {hash}</div>}
-          {isConfirming && <div>Waiting for confirmation...</div>}
-          {isConfirmed && <div>Transaction confirmed.</div>}
-          {sendError && (
-            <div>
-              Error:{' '}
-              {(sendError as BaseError).shortMessage || sendError.message}
-            </div>
-          )}
-        </form>
+        <h2 className="mb-0 text-xl font-bold">Send Hunter ETH</h2>
+        <button
+          type="button"
+          disabled={isSendPending}
+          onClick={handleSendEth}
+          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+        >
+          {isSendPending ? 'Confirming...' : 'Send 0.0002 ETH'}
+        </button>
+        {hash && <div>Transaction Hash: {hash}</div>}
+        {isConfirming && <div>Waiting for confirmation...</div>}
+        {isConfirmed && <div>Transaction confirmed.</div>}
+        {sendError && (
+          <div>
+            Error: {(sendError as BaseError).shortMessage || sendError.message}
+          </div>
+        )}
       </div>
 
       <div className="mt-12">
         <button
-          className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded"
+          className="bg-pink-500 hover:bg-pink-600 text-white text-sm px-3.5 py-1.5 rounded"
           onClick={() => disconnect()}
         >
           Disconnect

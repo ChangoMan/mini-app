@@ -2,11 +2,11 @@
 import { farcasterFrame } from '@farcaster/frame-wagmi-connector'
 import { createConfig, http } from 'wagmi'
 import { base } from 'wagmi/chains'
-import { coinbaseWallet, injected } from 'wagmi/connectors'
+import { coinbaseWallet } from 'wagmi/connectors'
 
 export const config = createConfig({
   chains: [base],
-  connectors: [farcasterFrame(), injected(), coinbaseWallet()],
+  connectors: [farcasterFrame(), coinbaseWallet()],
   transports: {
     [base.id]: http(),
   },
