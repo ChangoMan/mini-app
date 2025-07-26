@@ -21,7 +21,7 @@ function App() {
   }, [])
 
   return (
-    <div className="max-w-xl mx-auto py-12 px-4 h-screen bg-gray-900 text-white overflow-x-hidden">
+    <div className="max-w-xl mx-auto p-4 h-screen bg-gray-900 text-white overflow-x-hidden">
       <h1 className="flex flex-col items-center text-center text-2xl font-semibold">
         Easily earn interest
         <span className="flex items-center gap-2">
