@@ -21,9 +21,13 @@ function App() {
   }, [])
 
   return (
-    <div className="max-w-xl mx-auto py-12 px-6 h-screen bg-gray-900 text-white overflow-x-hidden">
-      <h1 className="text-center text-2xl font-semibold">
-        Easily earn interest on your USDC
+    <div className="max-w-xl mx-auto py-12 px-4 h-screen bg-gray-900 text-white overflow-x-hidden">
+      <h1 className="flex flex-col items-center text-center text-2xl font-semibold">
+        Easily earn interest
+        <span className="flex items-center gap-2">
+          on your USDC{' '}
+          <img alt="USDC Logo" className="w-6 h-6" src="/logo-usdc.svg" />
+        </span>
       </h1>
       <div className="mt-6 text-center">
         <EarnSection />
@@ -50,7 +54,12 @@ function EarnSection() {
           <WalletDropdownDisconnect />
         </WalletDropdown>
       </Wallet>
-      <Earn vaultAddress="0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A" />
+      <div>
+        <Earn
+          className="w-full max-w-sm"
+          vaultAddress="0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+        />
+      </div>
     </div>
   )
 }

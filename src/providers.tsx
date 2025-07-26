@@ -9,6 +9,12 @@ export function Providers(props: { children: ReactNode }) {
     <OnchainKitProvider
       apiKey={import.meta.env.VITE_PUBLIC_ONCHAINKIT_API_KEY}
       chain={base}
+      config={{
+        appearance: {
+          mode: 'dark',
+          theme: 'hacker',
+        },
+      }}
     >
       {props.children}
     </OnchainKitProvider>
