@@ -6,17 +6,17 @@
   },
   "miniapp": {
     "version": "1",
-    "name": "Hunter Chang",
+    "name": "USDC Savings",
     "homeUrl": "https://hc-mini-app.vercel.app/",
     "iconUrl": "https://hc-mini-app.vercel.app/logo.png",
-    "subtitle": "A demo miniapp by Hunter",
-    "description": "Send some ETH to Hunter",
-    "heroImageUrl": "https://hc-mini-app.vercel.app/og.jpg",
+    "subtitle": "Earn interest on your USDC",
+    "description": "Easily earn interest on your USDC",
+    "heroImageUrl": "https://hc-mini-app.vercel.app/og.png",
     "splashImageUrl": "https://hc-mini-app.vercel.app/splash-image.png",
     "splashBackgroundColor": "#f5f0ec",
     "requiredChains": ["eip155:8453"],
-    "ogTitle": "Hunter Chang",
-    "ogDescription": "A demo miniapp by Hunter",
-    "ogImageUrl": "https://hc-mini-app.vercel.app/og.jpg"
+    "ogTitle": "USDC Savings",
+    "ogDescription": "Easily earn interest on your USDC",
+    "ogImageUrl": "https://hc-mini-app.vercel.app/og.png"
   }
 }
